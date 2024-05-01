@@ -37,7 +37,7 @@ function App() {
       <div className="container-fluid vh-100 d-flex justify-content-center align-items-center app-header">
         <div className="row display-flex justify-content-center align-items-center">
           <div className="col-12 text-center text-bg-danger app-header-content">
-            <h1>Welcome to the Lottery</h1>
+            <h1>Welcome to the Lottery!</h1>
             <h2>Lottery Contract</h2>
             <p>This contract is managed by {manager}</p>
           </div>
@@ -46,22 +46,24 @@ function App() {
       {/* -------FORM TO ENTER THE LOTTERY------- */}
       <hr />
       <div className="container-fluid">
-        <p>
+        <p style={{ textAlign: "center" }}>
           There are currently {players.length} people entered, competing to win{" "}
           {web3.utils.fromWei(balance, "ether")} ether!
         </p>
         <div className="container-fluid">
           <form onSubmit={onSubmit} className="container-fluid">
-            <h4>Want to try your luck?</h4>
-            <label>Amount of ether to enter</label>
-            <br />
-            <input value={value} onChange={(e) => setValue(e.target.value)} />
-            <button>Enter</button>
+            <h4 style={{ textAlign: "center" }}>Want to try your luck?</h4>
+            <div className="d-flex justify-content-center align-items-center flex-column">
+              <label>Amount of ether to enter</label>
+              <br />
+              <input value={value} onChange={(e) => setValue(e.target.value)} />
+              <button className="btn btn-danger mt-3">Enter</button>
+            </div>
           </form>
-          <h1>{message}</h1>
+          <h1 style={{ textAlign: "center" }}>{message}</h1>
           {/* -------LIST OF PLAYERS------- */}
-          <h4>Current players:</h4>
-          <ul>
+          <h4 style={{ textAlign: "center" }}>Current players:</h4>
+          <ul style={{ textAlign: "center", listStyle: "none" }}>
             {players.map((player) => (
               <li key={player}>{player}</li>
             ))}
@@ -76,6 +78,7 @@ function App() {
       >
         <h4>Ready to pick a winner?</h4>
         <button
+          className="btn btn-danger"
           onClick={async () => {
             setMessage("Waiting on transaction success...");
             const accounts = await web3.eth.getAccounts();
