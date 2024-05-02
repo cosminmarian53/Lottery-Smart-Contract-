@@ -44,7 +44,7 @@ function App() {
         </div>
       </div>
       {/* -------FORM TO ENTER THE LOTTERY------- */}
-      <hr />
+      <br />
       <div className="container-fluid">
         <p style={{ textAlign: "center" }}>
           There are currently {players.length} people entered, competing to win{" "}
@@ -54,10 +54,14 @@ function App() {
           <form onSubmit={onSubmit} className="container-fluid">
             <h4 style={{ textAlign: "center" }}>Want to try your luck?</h4>
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <label>Amount of ether to enter</label>
+              <label>Amount of ether to enter: </label>
               <br />
-              <input value={value} onChange={(e) => setValue(e.target.value)} />
-              <button className="btn btn-danger mt-3">Enter</button>
+              <input
+                className="rounded"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+              />
+              <button className="btn btn-outline-danger mt-3">Enter</button>
             </div>
           </form>
           <h1 style={{ textAlign: "center" }}>{message}</h1>
@@ -78,7 +82,7 @@ function App() {
       >
         <h4>Ready to pick a winner?</h4>
         <button
-          className="btn btn-danger"
+          className="btn btn-outline-danger"
           onClick={async () => {
             setMessage("Waiting on transaction success...");
             const accounts = await web3.eth.getAccounts();
@@ -91,6 +95,11 @@ function App() {
           Pick a winner!
         </button>
       </div>
+      <footer className="footer text-center text-bg-danger p-3">
+        <div className="container">
+          <span className="text-muted">©️ Copyright: Made with💝</span>
+        </div>
+      </footer>
     </div>
   );
 }
