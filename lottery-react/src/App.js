@@ -8,7 +8,7 @@ function App() {
   const [balance, setBalance] = useState("");
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
-  // Fetch data from blockchain
+  // Fetch data from the contract
   useEffect(() => {
     const fetchData = async () => {
       const manager = await lottery.methods.manager().call();
